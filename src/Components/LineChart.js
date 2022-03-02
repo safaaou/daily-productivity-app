@@ -6,16 +6,27 @@ import './Productivity.css'
 import {
   Chart as ChartJS,
   CategoryScale,
-} from "chart.js";
-
-ChartJS.register(
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+  } from 'chart.js';
+  
+  ChartJS.register(
   CategoryScale,
-)
-
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend
+  );
 function daysInThisMonth() {
     var now = new Date();
     return new Date(now.getFullYear(), now.getMonth()+1, 0).getDate();
-  };
+  }
   
   const options = {
     scales: {
@@ -72,7 +83,7 @@ const LineChart = () => {
     }
 
     const reset = () => {
-      var conf = window.confirm('Are you sure you want to reset the entire chart? We recommend doing it on the 1st of each month so that you can start fresh for that month!');
+      var conf = window.confirm('Are you sure you want to reset the enitre chart? We recommend doing it on the 1st of each month so that you can start fresh for that month!');
       if (conf===true){
           setDatasets({
             label: 'Your Productivity',
@@ -130,4 +141,4 @@ const LineChart = () => {
     )
 }
 
-export default LineChart;
+export default LineChart
